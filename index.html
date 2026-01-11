@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Association of Discord</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Archivo+Black&display=swap" rel="stylesheet">
+    <!-- Babel standalone for in-browser JSX/TSX transformation -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        :root {
+            --neon-green: #00FF00;
+            --electric-blue: #0000FF;
+            --harsh-red: #D41B1B;
+            --bright-yellow: #FFFF00;
+        }
+        body {
+            font-family: 'Space+Mono', monospace;
+            background-color: #f0f0f0;
+            cursor: crosshair;
+            overflow-x: hidden;
+        }
+        .heading-font {
+            font-family: 'Archivo Black', sans-serif;
+        }
+        
+        /* Brutalist Animations */
+        @keyframes bowl {
+            0% { transform: translateX(-100vw) rotate(0deg); opacity: 0; }
+            20% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { transform: translateX(150vw) rotate(1440deg); opacity: 0; }
+        }
+        .bowling-ball-anim {
+            animation: bowl 1.2s cubic-bezier(0.45, 0.05, 0.55, 0.95) forwards;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            60% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .animate-bounce-in {
+            animation: bounceIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        @keyframes fadeInUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .animate-fade-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        @keyframes typeText {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        .typing-effect {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 4px solid black;
+            animation: typeText 1.5s steps(30, end), blink 0.5s step-end infinite alternate;
+        }
+        @keyframes blink { 50% { border-color: transparent; } }
+
+        @keyframes glowPulse {
+            0% { box-shadow: 0 0 5px var(--neon-green); }
+            50% { box-shadow: 0 0 20px var(--neon-green); }
+            100% { box-shadow: 0 0 5px var(--neon-green); }
+        }
+        .glow-pulse {
+            animation: glowPulse 2s infinite ease-in-out;
+        }
+
+        .ripple {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.15);
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple-effect 0.6s linear;
+            pointer-events: none;
+        }
+        @keyframes ripple-effect {
+            to { transform: scale(4); opacity: 0; }
+        }
+
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: radial-gradient(circle, #ccc 1px, transparent 1px);
+        }
+
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+
+        .spinner-cricket {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #000;
+            border-radius: 50%;
+            border-top-color: var(--harsh-red);
+            animation: spin 0.6s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.35.0"
+  }
+}
+</script>
+</head>
+<body class="bg-grid">
+    <div id="root"></div>
+</body>
+</html>

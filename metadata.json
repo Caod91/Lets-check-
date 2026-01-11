@@ -1,0 +1,7 @@
+{
+  "name": "Cricket Association of Discord",
+  "description": "Premier hub for Discord-based cricket simulations featuring a brutalist tournament manager and AI-powered cricket image editor.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
